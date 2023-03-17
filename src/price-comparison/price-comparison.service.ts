@@ -10,7 +10,7 @@ import {
   lastWeekAveragePrice,
   minutesToCronExpression,
 } from './utils/utils';
-import { Cron, Interval } from '@nestjs/schedule';
+import { Cron } from '@nestjs/schedule';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
