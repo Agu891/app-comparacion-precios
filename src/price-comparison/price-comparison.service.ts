@@ -24,7 +24,9 @@ const AGREGAR_PRODUCTO_MESSAGE = (title) =>
   `Se ha agregado el producto ${title} a la lista`;
 const PRECIO_ACTUALIZADO_MESSAGE = (productTitle) =>
   `Precio del producto ${productTitle}  actualizado`;
+const CACHED_DB_MESSAGE = 'DB CACHEADA';
 let mappedDbItems;
+
 @Injectable()
 export class PriceComparisonService {
   constructor(
@@ -37,7 +39,7 @@ export class PriceComparisonService {
     if (!mappedDbItems) {
       const dbItems = await this.itemsRepo.find({}, 'id prices title').exec();
       mappedDbItems = new Map(dbItems.map((entry) => [entry.id, entry]));
-      console.log('DB CACHEADA ---------------');
+      console.log(CACHED_DB_MESSAGE);
     }
 
     do {
